@@ -26,8 +26,8 @@ public class MailController {
     public String sendMail(){
 
         try{
-            rabbitTemplate.setExchange(env.getProperty("mail.exchange.naem"));
-            rabbitTemplate.setRoutingKey(env.getProperty("mail.exchangge.key.name"));
+            rabbitTemplate.setExchange(env.getProperty("mail.exchange.name"));
+            rabbitTemplate.setRoutingKey(env.getProperty("mail.exchange.key.name"));
             rabbitTemplate.convertAndSend(MessageBuilder.withBody("mail发送".getBytes("UTF-8")).build());
         }catch (Exception e){
             log.info("发送邮件出错");
